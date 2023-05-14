@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 
 from app.funcs.utils import JWTSettings
 from app.tags import tags_metadata
-from app.routers import auth, playlists, artists, songs, albums
+from app.routers import auth, sports
 from app.database import models, crud
 from app.database.database import engine, SessionLocal
 from app.dependencies import get_db, get_settings
@@ -29,10 +29,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.include_router(auth.router)
-app.include_router(playlists.router)
-app.include_router(artists.router)
-app.include_router(songs.router)
-app.include_router(albums.router)
+app.include_router(sports.router)
 
 
 @AuthJWT.load_config
